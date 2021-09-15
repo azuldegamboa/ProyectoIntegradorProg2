@@ -1,10 +1,10 @@
 var express = require('express');
-const controller = require('../controllers/productoController');
 var router = express.Router();
+const controller = require('../controllers/postController');
 
-router.get('/', controller.producto);
+router.get('/', controller.post);
 
-router.get('/detalle/:id', controller.detalle);
+router.get('/detalle/:id', controller.agregarPost);
 
 
   module.exports=router
