@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var productoRouter = require('./routes/producto');
+var postsRouter = require('./routes/posts');
 
 var app = express();
 
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter); // una sola barra no agrega nada 
 app.use('/users', usersRouter); // barra y algo atras me lleva a lo que puse atras de la barra
-app.use('/producto', productoRouter); 
+app.use('/posts', postsRouter); 
 
 
 // catch 404 and forward to error handler

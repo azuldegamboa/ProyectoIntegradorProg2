@@ -7,4 +7,6 @@ router.get('/', controller.post);
 router.get('/detalle/:id', controller.agregarPost);
 
 
+
+
   module.exports=router

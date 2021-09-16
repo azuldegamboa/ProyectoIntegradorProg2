@@ -6,4 +6,6 @@ var controller= require('../controllers/indexController')
 /* GET home page. */
 router.get('/', controller.index);
 
+router.get('/search', controller.resultadoBusqueda);
+
 module.exports = router;
