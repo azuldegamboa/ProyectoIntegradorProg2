@@ -1,6 +1,6 @@
 let users={
     lista:[{
-       id: 0, // cada usuario tiene dos publicaciones --> id_usuario 
+       id: 1, // cada usuario tiene dos publicaciones --> id_usuario 
        email:"mechi@gmail.com",
        password:"hola123",
        nombre:"Mercedes",
@@ -10,7 +10,7 @@ let users={
        imagen: "/images/users/mechi.jpeg"
     },
     {
-        id: 0,
+        id: 2,
         email:"lara@gmail.com",
         password:"laritafer",
         nombre:"Lara",
@@ -20,7 +20,7 @@ let users={
         imagen: "/images/users/lara.jpeg" 
      },
      {
-        id: 0,
+        id: 3,
         email:"azul@gmail.com",
         password:"blue09",
         nombre:"Azul",
@@ -30,7 +30,7 @@ let users={
         imagen: "/images/users/azul.jpeg"
      },
      {
-        id: 0,
+        id: 4,
         email:"mora@gmail.com",
         password:"rivereslomas",
         nombre:"Mora",
@@ -40,7 +40,7 @@ let users={
         imagen: "/images/users/mora.jpeg"
      },
      {
-        id: 0,
+        id: 5,
         email:"raul@gmail.com",
         password:"conciertosmipasion",
         nombre:"Raul",
