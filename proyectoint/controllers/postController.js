@@ -7,7 +7,7 @@ let controller ={
       for (let i = 0; i < post.lista.length; i++) {
         const element = post.lista[i];
         if (element.id==req.params.id) {//el id de esta publicacion es igual al id del parametro que esta en el link, si alguuno de los elemento dentro de la lista de post tiene el mismo id que el que yo busque en la ruta que me lo traiga
-          res.render('detallePost',{post:element, users: users.lista, comentario: comentario.lista});
+          res.render('detallePost',{post:element, users: users.lista, comentarios: comentario.lista});
      
         }
       }

@@ -4,7 +4,7 @@ let post= require("../data/post")
 
 let controller= {
     index: function(req, res, next) {
-        res.render('index', { post: post.lista,users: users.lista, coments:comentario.lista });
+        res.render('index', { posts: post.lista,users: users.lista, comments:comentario.lista });
       },
     
     resultadoBusqueda: function(req, res, next) {
