@@ -17,7 +17,7 @@ let controller= {
         }
       }
       res.render('resultadoBusqueda', { resultado: resultado }); // la palabra de la izquierda es para identificarlo en las vistas
-    }
+    },
 
 }
 module.exports= controller
