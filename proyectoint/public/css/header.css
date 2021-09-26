@@ -17,6 +17,7 @@ header nav ul li a,
 header a{
     color: white;
 }
+
 header nav ul li a:hover,
 header a:hover{
     color: lightsteelblue;
@@ -37,6 +38,7 @@ header ul{
     margin: 0;
     padding: 0;
     list-style: none;
+    font         : bold 15px sans-serif;
 }
 header div.uk-navbar-center ul li{
     padding: 0 10px;
@@ -51,4 +53,9 @@ header div.uk-navbar-center ul li:nth-last-child(1){
 }
 header nav form input, header nav form ::placeholder, header nav form span{
     color: white !important;
+}
+.uk-navbar-right form input {
+    border-radius: 5px;
+    border       : 2px solid rgb(11, 4, 73);
+    
 }
