@@ -1,0 +1,48 @@
+*{box-sizing:border-box;}
+
+button, input, select, textarea {
+    font-family : inherit;
+    font-size   : 100%;
+  }
+
+input, textarea, select, button {
+    width : 150px;
+    margin: 0;
+  
+    -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+       -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+            box-sizing: border-box;
+  }
+
+  input {
+    height: 2.5em; /* for IE */
+    vertical-align: middle; /* This is optional but it makes legacy IEs look better */
+    border-radius: 5px;
+}
+
+
+
+  button {
+    
+  
+    padding      : 5px;
+  
+    font         : bold 15px sans-serif;
+    border       : 2px solid rgb(11, 4, 73);
+    border-radius: 10px;
+    background   : none;
+  
+    cursor       : pointer;
+  
+  }
+  
+  button:after {
+    content: " >>>";
+  }
+  
+  button:hover,
+  button:focus {
+    outline   : none;
+    background: #000;
+    color   : #FFF;
+  }
