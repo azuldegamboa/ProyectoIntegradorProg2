@@ -16,7 +16,7 @@
                         <div>
                             <img src="https://via.placeholder.com/40" alt="">
                         </div>
-                        <h4><a href="/users/details/1"><%= users[i].nombre %> <%= users[i].apellido %></a></h4>
+                        <h4><a href="/users/details/<%= users[i].id %> "><%= users[i].nombre %> <%= users[i].apellido %></a></h4>
                         
                     </div>
                     <div class="post-body uk-flex uk-flex-center">
@@ -32,7 +32,7 @@
                             </li>
                         </ul>
                         <div class="post-pie uk-flex">
-                            <h5 class="uk-width-1-6"><a href="/users/details/1"><%= users[i].nombre %> <%= users[i].apellido %>  </a></h5>
+                            <h5 class="uk-width-1-6"><a href="/users/details/<%= users[i].id %> "><%= users[i].nombre %> <%= users[i].apellido %>  </a></h5>
                             <p class="uk-width-5-6"><%= post.descripcion  %> </p>
                         </div>
                     </div>
