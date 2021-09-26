@@ -9,7 +9,7 @@ let controller= {
     
     resultadoBusqueda: function(req, res, next) {
       let resultado =[]
-      for (let i = 0; i < post.lista.length; i++) { //este for recorre todda la lista de post y recorre elemento por elemento si dentro de la descripcion lo que la persona escribio
+      for (let i = 0; i < post.lista.length; i++) { //este for recorre todda la lista de post y recorr elemento por elemento si dentro de la descripcion lo que la persona escribio
         const element = post.lista[i];
         if(element.descripcion.toLowerCase().includes(req.query.search.toLowerCase())){ //si existe el elemento con una descripcion que contrenga lp que la persona escribio, se guarda dentro de la lista de resultados a traves de push
           resultado.push(element) //
