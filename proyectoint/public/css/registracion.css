@@ -1,44 +1,46 @@
 *{box-sizing:border-box;}
 
-button, input, select, textarea {
-    font-family : inherit;
-    font-size   : 100%;
+  input, button {
+    display: block;
+    width: 100%;
+    
+    text-align: center;
+    font-size: 1.1em;
+    padding: 1ex;
+    border: 2px solid #ECF0F1;
+    transition: border ease 500ms;
+    border-radius: 1ex;
+    font-family: "Open Sans";
+    background: #ECF0F1;
+    color: #181818;
+  )
+    &:focus {
+      outline: none;
+      border: 2px solid #3498DB;
+    }
+    
+    &:not(:last-child) {
+      margin-bottom: 1ex;
+    }
   }
-
-input, textarea, select, button {
-    width : 150px;
-    margin: 0;
-  
-    -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
-       -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
-            box-sizing: border-box;
+  button {
+    color: white;
+    border: 2px solid #3498DB;
+    background: #3498DB;
   }
-
-  input {
-    height: 2.5em; /* for IE */
-    vertical-align: middle; /* This is optional but it makes legacy IEs look better */
-    border-radius: 5px;
 }
 
-
-
-  button {
-    
-  
-    padding      : 5px;
-  
-    font         : bold 15px sans-serif;
-    border       : 2px solid rgb(11, 4, 73);
-    border-radius: 10px;
-    background   : none;
-  
-    cursor       : pointer;
-  
-  }
-
-  button:hover,
-  button:focus {
-    outline   : none;
-    background: #000;
-    color   : #FFF;
-  }
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #5ca4ec;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
