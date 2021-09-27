@@ -14,11 +14,12 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//uso de las variables
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // dice que va a correr un servidor de archivo en la carpeta public
 
 app.use('/', indexRouter); // una sola barra no agrega nada 
 app.use('/users', usersRouter); // barra y algo atras me lleva a lo que puse atras de la barra
