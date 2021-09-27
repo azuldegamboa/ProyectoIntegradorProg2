@@ -1,11 +1,11 @@
-section.detalle-container{
+.section.detalle-container{
     border: 1px solid lightgray;
 }
-article.detalle-post{
+.article.detalle-post{
     /* border-right: 1px solid lightgray; */
 }
 
-article.detalle-post .imagen-post{
+.article.detalle-post .imagen-post{
 
 }
 
