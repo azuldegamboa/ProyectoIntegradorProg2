@@ -16,6 +16,7 @@ article.post div.info-usuario img{
 }
 article.post div.info-usuario h4{
    margin: 8px 10px;
+   font         : bold sans-serif;
 }
 
 article.post div.post-body{
