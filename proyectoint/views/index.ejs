@@ -43,7 +43,7 @@
                                 <% let comentario = comments[i] %> 
                                 <% if (comentario.id_publicacion==post.id) { %>
                                     <li>
-                                        <a href="/users/details/<%= users[comentario.id_usuario-1].id %>" <%= users[comentario.id_usuario-1].nombre %> <%= users[comentario.id_usuario-1].apellido %> </a>
+                                        <a href="/users/details/<%= users[comentario.id_usuario-1].id %>"> <%= users[comentario.id_usuario-1].nombre %> <%= users[comentario.id_usuario-1].apellido %> </a>
                                         <p><%= comentario.comment %> </p>
                                     </li>
                                 <% } %>
