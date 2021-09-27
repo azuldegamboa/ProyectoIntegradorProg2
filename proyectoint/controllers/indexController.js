@@ -1,4 +1,4 @@
-let comentario = require("../data/comentario");
+let comentario = require("../data/comentario"); //requiriendo un modulo
 
 let post = require("../data/post");
 
