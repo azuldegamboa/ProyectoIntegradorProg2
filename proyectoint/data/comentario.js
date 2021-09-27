@@ -12,7 +12,7 @@ let comment={
         comment:"Gracias por avisar, me encanta Hernan Cattaneo.",
         fecha_creacion:" 2021-07-29",
         id_usuario: 1,
-        id_publicacion: 2,
+        id_publicacion: 1,
 
     },
     {

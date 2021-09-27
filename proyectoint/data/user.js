@@ -36,7 +36,7 @@ let users={
         nombre:"Mora",
         apellido:"Olveira",
         fechaNac:"2003-03-03",
-        edad:3, no
+        edad:3, 
         imagen: "/images/users/mora.jpeg"
      },
      {
