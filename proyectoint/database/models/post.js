@@ -14,13 +14,13 @@ module.exports= (sequelize,dataTypes)=>{
         descripcion:{
             type: dataTypes.STRING
         },
-        foto:{
+        imagen:{
             type:dataTypes.STRING
         },
     }
 
     const config = {
-        tableName:'post',
+        tableName:'posteos',
         timestamps: false,
         underscored: true,
     }

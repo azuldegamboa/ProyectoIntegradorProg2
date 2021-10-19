@@ -1,5 +1,5 @@
 
-const db = require('/database/models');
+const db = require('../database/models');
 
 let controller={
     detalleUsuario: function(req, res, next) {

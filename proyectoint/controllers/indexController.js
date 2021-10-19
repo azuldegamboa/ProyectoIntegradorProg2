@@ -4,8 +4,8 @@ const db = require("../database/models");
 let controller= {
     index: function(req, res, next) {
       db.post.findAll()
-        .then((post) =>{
-          res.render('index', { post: post.lista, users: users.lista, comments:comentario.lista });
+        .then((posts) =>{
+          res.render('index', { posts});
         })
         .catch((error)=> {
          res.send(error)
