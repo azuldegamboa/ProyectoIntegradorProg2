@@ -1,29 +1,29 @@
-module.exports = (sequelize, dataTypes) => {
-    const alias = 'Post';
+module.exports= (sequelize,dataTypes)=>{
+
+    const alias = 'comentario';
 
     const cols = {
         id:{
-            autoIncrement: true,
+            autoIncremental: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        user_id:{
+        usuario_id:{
             type: dataTypes.INTEGER
         },
-        contenido:{
+        descripcion:{
             type: dataTypes.STRING
         },
     }
 
     const config = {
-        tableName:"post",
+        tableName:'comentario',
         timestamps: false,
         underscored: true,
-
     }
 
-    const Post = sequelize.define(alias,cols,config)
 
-    return Post;
-
+    const comentario = sequelize.define(alias,cols,config)
+    
+    return comentario
 }

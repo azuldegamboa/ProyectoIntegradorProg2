@@ -18,4 +18,13 @@ let controller ={
       }
 }
 
-module.exports=controller
+module.exports=controller;
+
+//const db = require('../database/models');
+//let controller ={
+  //post: function(req, res, next) { //req= request res = response
+   // const post= await db.post.findByPk(req.params.id)
+    //if (!post){
+      //return res.render('error');
+    //}
+    //const comentarios= await db.post.findAll({where: {post_id:req.params.id}})

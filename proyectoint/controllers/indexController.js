@@ -1,12 +1,15 @@
-let comentario = require("../data/comentario");
 
-let post = require("../data/post");
-
-let users = require('../data/user');
+const db = require("../database/models");
 
 let controller= {
     index: function(req, res, next) {
-        res.render('index', { posts: post.lista, users: users.lista, comments:comentario.lista });
+      db.post.findAll()
+        .then((post) =>{
+          res.render('index', { post: post.lista, users: users.lista, comments:comentario.lista });
+        })
+        .catch((error)=> {
+         res.send(error)
+      })
       },
     
     resultadoBusqueda: function(req, res, next) {
