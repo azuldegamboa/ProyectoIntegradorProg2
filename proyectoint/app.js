@@ -19,7 +19,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'))); // dice que va a correr un servidor de archivo en la carpeta public
+app.use(express.static(path.join(__dirname, 'public'))); // dice que todo lo que contenga la carpeta public va a ser visto en el navegador
 
 app.use('/', indexRouter); // una sola barra no agrega nada 
 app.use('/users', usersRouter); // barra y algo atras me lleva a lo que puse atras de la barra
