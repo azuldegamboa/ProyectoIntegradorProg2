@@ -16,12 +16,12 @@
                         <div>
                             <img src="https://via.placeholder.com/40" alt="">
                         </div>
-                        <h4><a href="/users/details/<%= users[post.usuario_id-1].id%>" > <%= users[post.usuario_id-1].nombre %> <%= users[post.usuario_id-1].apellido%> </a></h4>
+                        <h4><a href="/users/details/<%= post.usuario_id%>" > <%= post.usuario_id %> <%= post.usuario_id%> </a></h4>
                         
                     </div>
                     <div class="post-body uk-flex uk-flex-center">
                         <a href="/posts/detalle/<%= post.id %> ">
-                            <img src="<%=post.foto %>" alt="">
+                            <img src="<%=post.imagen %>" alt="">
                         </a>
                     </div>
                     <div class="post-reacciones">
@@ -37,18 +37,6 @@
                     </div>
                     <div class="post-comentarios">
                         <h6>Comentarios</h6>
-                        <ul>
-                            <% for( let i = 0; i < comments.length; i++ ) { %>
-                                <% let comentario = comments[i] %> 
-                                <% if (comentario.id_publicacion==post.id) { %>
-                                    <li>
-                                        <a href="/users/details/<%= users[comentario.id_usuario-1].id %>"> <%= users[comentario.id_usuario-1].nombre %> <%= users[comentario.id_usuario-1].apellido %> </a>
-                                        <p><%= comentario.comment %> </p>
-                                    </li>
-                                <% } %>
-                            <% } %>
-                            <a href="">Ver más...</a>
-                        </ul>
                     </div>
                 </article>
                 <% } %>

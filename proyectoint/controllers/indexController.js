@@ -1,12 +1,16 @@
-let comentario = require("../data/comentario"); //requiriendo un modulo
 
-let post = require("../data/post");
-
-let users = require('../data/user');
+const db = require("../database/models");
+const op = db.Sequelize.Op;
 
 let controller= {
     index: function(req, res, next) {
-        res.render('index', { posts: post.lista, users: users.lista, comments:comentario.lista });
+      db.post.findAll({order:[['id','DESC']]}) //busca todos los posteos, me va a traer el orden inverso al que viene por defecto 
+        .then((posts) =>{     //aca arranca la promesa, tengo todos los posteos
+          res.render('index', { posts});
+        })
+        .catch((error)=> {     //nos sirve para manejar el error y mostrarlo para elegir que hacer
+         res.send(error)
+      })                      //termina la promesa, nos puede traer error, por eso usamos el catch
       },
     
     resultadoBusqueda: function(req, res, next) {
@@ -17,6 +21,14 @@ let controller= {
           resultado.push(element) 
         }
       }
+      //const post = await db.Post.findAll({ where: {
+      //  [op.or]:[
+      //    {descripcion: {[op.like]: "%"+resultado+"%"}},
+      //    {imagen: {[op.like]: "%"+resultado+"%"}},
+      //]
+      //}}
+      //)      resultado es el criterio de busqueda?
+     
       res.render('resultadoBusqueda', { resultado: resultado }); // la palabra de la izquierda es para identificarlo en las vistas
     }
 
