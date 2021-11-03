@@ -8,6 +8,12 @@ module.exports= (sequelize,dataTypes)=>{
             primaryKey: true,
             type: dataTypes.INTEGER
         },
+        email:{
+            type: dataTypes.STRING
+        },
+        password:{
+            type: dataTypes.STRING
+        },
         nombre:{
             type: dataTypes.STRING
         },
@@ -17,6 +23,12 @@ module.exports= (sequelize,dataTypes)=>{
         imagen:{
             type:dataTypes.STRING
         },
+        fecha_de_nacimiento: {
+            type: dataTypes.DATE
+        },
+        edad: {
+            type: dataTypes.INTEGER
+        }
     }
 
     const config = {
@@ -28,5 +40,16 @@ module.exports= (sequelize,dataTypes)=>{
 
     const user = sequelize.define(alias,cols,config)
     
+    user.associate = (modelo) =>{
+        user.hasMany(modelo.post,{
+            as: "posteos", // le pertenece al usuario
+            foreignKey: "usuario_id", // dato que usamos para saber q posteo le pertenece a cada usuario 
+        }) // queremos relacionar los posteos con los usuaruis con este modelo
+
+    user.hasMany(modelo.comentario, {
+        as: "comentarios",
+        foreignKey: "posteo_id",
+    })
+    }
     return user
 }

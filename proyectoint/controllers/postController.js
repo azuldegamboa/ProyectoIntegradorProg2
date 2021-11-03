@@ -13,6 +13,13 @@ let controller ={
       }
         
     },
+store: function(req,res){
+  console.log(req.body )
+  //Guardar en la base de datos  
+  req.content //contenido del post 
+  res.render('posts/publish')
+},
+
     agregarPost: function(req, res, next) { //req= request res = response
         res.render('agregarPost'); //res.send --> envia info req.params --> es un parametro, se guardan ahi
       }

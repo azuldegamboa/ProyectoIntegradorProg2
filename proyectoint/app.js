@@ -42,4 +42,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.use(async(req, res, next)=>{
+  res.locals.user_id
+})
+
 module.exports = app;
