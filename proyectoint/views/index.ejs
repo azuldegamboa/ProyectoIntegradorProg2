@@ -14,9 +14,9 @@
                 <article class="post uk-card-default uk-flex uk-flex-column">
                     <div class="info-usuario uk-flex ">
                         <div>
-                            <img src="https://via.placeholder.com/40" alt="">
+                            <img src="<%= post.user.imagen %> " alt="">
                         </div>
-                        <h4><a href="/users/details/<%= post.usuario_id%>" > <%= post.usuario_id %> <%= post.usuario_id%> </a></h4>
+                        <h4><a href="/users/details/<%= post.usuario_id%>" > <%= post.user.nombre %> <%= post.user.apellido%> </a></h4>
                         
                     </div>
                     <div class="post-body uk-flex uk-flex-center">
@@ -37,6 +37,15 @@
                     </div>
                     <div class="post-comentarios">
                         <h6>Comentarios</h6>
+                        <ul>
+                            <% post.comentarios.forEach(comentario => { %>
+                                <li>
+                                    <a href="/users/details/<%= comentario.user.id %>"> <%= comentario.user.nombre %> <%= comentario.user.apellido %> </a>
+                                    <p><%= comentario.comentario %> </p>
+                                </li>
+                            <% }) %>
+                            
+                        </ul>
                     </div>
                 </article>
                 <% } %>

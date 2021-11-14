@@ -3,14 +3,19 @@ const db = require("../database/models");
 const op = db.Sequelize.Op;
 
 let controller= {
-    index: function(req, res, next) {
-      db.post.findAll({order:[['id','DESC']]}) //busca todos los posteos, me va a traer el orden inverso al que viene por defecto 
-        .then((posts) =>{     //aca arranca la promesa, tengo todos los posteos
-          res.render('index', { posts});
-        })
-        .catch((error)=> {     //nos sirve para manejar el error y mostrarlo para elegir que hacer
-         res.send(error)
-      })                      //termina la promesa, nos puede traer error, por eso usamos el catch
+    index: async function(req, res, next) {
+      let posts = await db.post.findAll({
+        include:[{
+          association:"user"
+        },{
+          association:"comentarios",
+          include:{
+            association:"user"
+          }
+        }],
+        order:[['id','DESC']]
+      }) //busca todos los posteos, me va a traer el orden inverso al que viene por defecto 
+      res.render('index', { posts});
       },
     
     resultadoBusqueda: function(req, res, next) {
