@@ -7,13 +7,16 @@
     <main>
         <div class="uk-section uk-section-small login-page">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center form container">
-                    <form class="login-form" action="/" method="GET">
+                    <form class="login-form" action="/users/login" method="POST">
                         <p> 
                         <input type="email" placeholder="Email" id="email" name="email">
                         </p> 
                         <p> 
                             <input type="password" placeholder="Contraseña" id="password" name="password">
                         </p> 
+                        <p>
+                            <input type="checkbox" name="remember"> RECORDAME
+                        </p>
                         <p> 
                             <button type="submit" id="description"> Sign In</button>
                             </p> 
