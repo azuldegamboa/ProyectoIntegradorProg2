@@ -3,8 +3,8 @@ const db = require("../database/models");
 const op = db.Sequelize.Op;
 
 let controller= {
-    index: async function(req, res, next) {
-      let posts = await db.post.findAll({
+    index:  function(req, res, next) {
+     db.post.findAll({
         include:[{
           association:"user"
         },{
@@ -13,19 +13,31 @@ let controller= {
             association:"user"
           }
         }],
-        order:[['id','DESC']]
-      }) //busca todos los posteos, me va a traer el orden inverso al que viene por defecto 
-      res.render('index', { posts});
+        order:[['created_at','DESC']]
+      }) //busca todos los posteos, me va a traer el mas nnuevo priemro de manera descenciente 
+      .then(posts=>{
+        res.render('index', { posts});
+      })
       },
     
     resultadoBusqueda: function(req, res, next) {
-      let resultado =[]
-      for (let i = 0; i < post.lista.length; i++) { //este for recorre todda la lista de post y recorre elemento por elemento si dentro de la descripcion lo que la persona escribio
-        const element = post.lista[i];
-        if(element.descripcion.toLowerCase().includes(req.query.search.toLowerCase())){ //si existe el elemento con una descripcion que contrenga lp que la persona escribio, se guarda dentro de la lista de resultados a traves de push
-          resultado.push(element) 
-        }
-      }
+      db.post.findAll({
+        include:[{
+          association:"user"
+        }],
+        where:{
+          descripcion: {
+            [op.like]:"%"+req.query.search+"%" //something like ,req.query. search (cuando busques algo va a estar guardado aca) formulario get. que no te importen las mayusculas y minusculas
+          }// las comillas y el porcentaje hacen que no tenga que buscarlo tal cual para encontrarlo 
+        },
+        order:[['created_at','DESC']], // ordenar los posteos de manera descendente
+        limit: 10 //limite de 10 posteos 
+        
+      })
+      .then(results=>{
+        res.render('resultadoBusqueda', { resultado: results }); // la palabra de la izquierda es para identificarlo en las vistas 
+      })
+      
       //const post = await db.Post.findAll({ where: {
       //  [op.or]:[
       //    {descripcion: {[op.like]: "%"+resultado+"%"}},

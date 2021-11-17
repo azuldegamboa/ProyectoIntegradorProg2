@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head') %> 
+<%- include('./partials/head') %>
 
-    <body>
-    <%- include('./partials/headerDeslogueado') %> 
+<body>
+    <%- include('./partials/headerDeslogueado') %>
 
     <main>
         <div class="uk-section uk-section-small">
-            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-               
-                <h2>(Mostar resultados de busqueda)</h2>
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center uk-flex-column">
 
+                <h2>Resultados de tu Busqueda..</h2>
+                <% if (resultado.length ==0) { %> 
+                  <h3> No hay resultados para su criterio de Busqueda. </h3>
+                <% }else{ %>
+                    <section class="muro uk-flex uk-flex-middle uk-flex-center">
+                        <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
+                            <% for( let i = 0; i < resultado.length; i++ ) { %>
+                            <% let post = resultado[i] %>
+                            <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                                <div class="info-usuario uk-flex ">
+                                    <div>
+                                        <img src="<%= post.user.imagen %> " alt="">
+                                    </div>
+                                    <h4><a href="/users/details/<%= post.usuario_id%>" > <%= post.user.nombre %> <%= post.user.apellido%> </a></h4>
+                                    
+                                </div> 
+                                <a href="/posts/detalle/<%= post.id %> " class="link-detalle">
+                                    <img src="<%= post.imagen%>" alt="foto de perfil" class="foto-perfil">
+                                    <p class="uk-text-center"><%= post.descripcion %> </p>
+                                </a>
+                            </div>
+                        <% } %>
+                        </div>
+                    </section>
+                <% } %>
             </div>
         </div>
 
-
-        //Tenemos que poner lo siguiente pero no se en que parte:
-        //<%if posts.legth ==0){%>
-        //<div class="alert alert-danger" role="alert">
-        //Lo sentimos, no hemos encontrado resultados para <%=resultado%>
-        //</div>
-        //<%}%>     que traiga este resultado si no encuentra nada
-
-
-
     </main>
-    
-    <%- include('./partials/footer') %> 
+
+    <%- include('./partials/footer') %>
 
 </body>
 
 </html>
-

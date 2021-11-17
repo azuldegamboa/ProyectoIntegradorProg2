@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const op = db.Sequelize.Op;
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const post = require('../data/post');
 
 const validateUser = async function (req) {
   const errors = [];
@@ -40,16 +41,17 @@ const validateUser = async function (req) {
 
 let controller = {
   detalleUsuario: function (req, res, next) {
-    for (let i = 0; i < users.lista.length; i++) {
-      const element = users.lista[i];
-      if (element.id == req.params.id) { //el id de esta publicacion es igual al id del parametro que esta en el link, si alguuno de los elemento dentro de la lista de post tiene el mismo id que el que yo busque en la ruta que me lo traiga
-        res.render('detalleUsuario', {
-          user: element,
-          posts: post.lista,
-          comentarios: comentario.lista
-        });
-      }
-    }
+    db.user.findByPk(req.params.id,{
+      include:[{
+        association:"posteos"
+      }]
+    })
+    .then(usuario=>{
+      res.render('detalleUsuario', {
+        user: usuario,
+         });
+    })
+      
   },
   //detalleUsuario: async function(req,res){
   //const user = await db.user.findByPk(req.params.nombre);
