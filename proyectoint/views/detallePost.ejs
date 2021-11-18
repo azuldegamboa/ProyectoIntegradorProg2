@@ -18,6 +18,15 @@
                             <img src="https://via.placeholder.com/35" alt="Foto del usuario">
                             <h3><a href="/users/details/<%=post.user.id%>" ><%=post.user.nombre %> <%= post.user.apellido %></a></h3>
                         </div>
+                        <% if (usuariolog.id==post.user.id) { %>
+                         <div>
+                             <a href="/posts/edit/<%=post.id%>"> Editar</a>
+                             <form action="/posts/delete" method="POST"> 
+                                 <input type="hidden" value="<%=post.id%>" name="id">
+                                 <input type="submit" value="borrar" placeholder="Borrar">
+                             </form>
+                         </div>
+                        <% } %>
                         <div class="lista-comentarios" >
                             <% for( let i = 0; i < post.comentarios.length; i++ ) { %>
                                 <% let comentario = post.comentarios[i] %> 
