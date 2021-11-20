@@ -15,6 +15,9 @@
                     <p> 
                     <input type="text" placeholder="Descripción" id="description" name="descripcion">
                     </p> 
+                    <% if (error) { %>
+						<p id="error"><%=error%></p>
+					<% } %>
                     <p> 
                     <input type="file" placeholder="imagen" id="imagen" name="imagen">
                     </p> 
