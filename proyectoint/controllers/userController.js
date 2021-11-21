@@ -67,6 +67,11 @@ let controller = {
       error: null
     });
   },
+  logout: function (req, res, next) { //req= request res = response
+    req.session.user = null;
+    res.clearCookie('user')
+    res.redirect('/')
+    },
   loginpost: function (req, res, next) { //req= request res = response
     if (!req.body.email) {
       res.render('login', {

@@ -12,6 +12,8 @@ router.get('/edit', controller.editarPerfil);
 
 router.get('/login', controller.login);
 
+router.get('/logout', controller.logout);
+
 router.get('/register', controller.registracion);
 
 router.post('/register', upload.single('imagen'), controller.create);
