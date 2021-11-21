@@ -11,6 +11,11 @@ router.get('/edit/:id', controller.edit);
 router.post('/edit/:id', controller.editPost);
 router.post('/detalle/:id', controller.store);
 router.post('/delete', controller.delete);
+router.post('/comment', controller.comentar);
+
+
+router.get('/like/:id', controller.like);
+router.get('/dislike/:id', controller.dislike);
 
 
 //router.get('/:id/edit', controller.detalle );

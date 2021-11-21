@@ -11,10 +11,20 @@ let controller ={
         include:{
           association:"user"
         }
+      },{
+        association:"likes",
       }]
      })
      .then(post=>{
-      res.render('detallePost',{post:post});   
+       var likeado = false
+       if(req.session.user){
+          post.likes.forEach(like => {
+          if(req.session.user.id==like.usuario_id){
+            likeado=true
+          }
+         });
+       }
+      res.render('detallePost',{post:post, likeado:likeado});   
      })
        
     },
@@ -76,6 +86,46 @@ store: function(req,res){
           res.redirect("/")
         })
       },
+      
+      comentar:function(req,res){
+        db.comentario.create({
+          comentario:req.body.comment,
+          usuario_id:req.session.user.id,
+          posteo_id:req.body.id,
+        })
+        .then(()=>{
+          res.redirect("/posts/detalle/"+req.body.id)
+        })
+      },
+
+        
+        
+        like: function(req, res) {
+          if (!req.session.user) {
+            res.redirect('/posts/detalle/'+req.params.id);
+          }
+          db.like.create({
+            usuario_id: req.session.user.id,
+            posteo_id: req.params.id 
+          }).then(like => {
+            res.redirect('/posts/detalle/'+req.params.id);
+          }).catch(error => {
+            return res.send(error);
+          })
+        },
+        dislike: function(req, res) {
+          if (!req.session.user) {
+            res.redirect('/posts/detalle/'+req.params.id);
+          }
+          db.like.destroy(
+            { where: { usuario_id: req.session.user.id, posteo_id: req.params.id }
+          })
+          .then(() => {
+            res.redirect('/posts/detalle/'+req.params.id);
+          }).catch(error => {
+            return res.render(error);
+          })
+        },
 
 }
 
