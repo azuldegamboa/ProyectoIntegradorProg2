@@ -42,6 +42,12 @@ module.exports= (sequelize,dataTypes)=>{
         as: "comentarios",
         foreignKey: "posteo_id",
     })
+
+    post.hasMany(modelo.like, {
+        as: "likes",
+        foreignKey: "posteo_id",
+    })
+
     }
     return post
 }

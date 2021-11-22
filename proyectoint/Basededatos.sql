@@ -35,6 +35,14 @@ CREATE TABLE comentarios  (
 
 );
 
+CREATE TABLE likes(
+id int unsigned PRIMARY KEY auto_increment,
+usuario_id int unsigned,
+foreign key (usuario_id) references users(id),
+posteo_id int unsigned,
+foreign key (posteo_id) references posteos(id)
+);
+
 INSERT INTO users values 
 (default, 'mechi@gmail.com', 'hola123', 'Mercedes', 'Lombardi', '/images/users/mechi.jpeg', '2000-03-23', 21),
 (default, 'lara@gmail.com', 'laritafer', 'Lara', 'Fernandez', '/images/users/lara.jpeg', '1999-01-01', 22),
