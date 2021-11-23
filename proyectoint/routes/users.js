@@ -18,4 +18,6 @@ router.post('/register', upload.single('imagen'), controller.create);
 
 router.post('/login', controller.loginpost);
 
+router.get('/logout', controller.logout);
+
 module.exports = router;
