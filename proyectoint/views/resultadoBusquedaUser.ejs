@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <%- include('./partials/headerDeslogueado') %>
+
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center uk-flex-column">
+
+                <h2>Resultados de tu Busqueda..</h2>
+                <% if (resultado.length ==0) { %>
+                <h3> No hay resultados para su criterio de Busqueda. </h3>
+                <% }else{ %>
+                <section class="muro uk-flex uk-flex-middle uk-flex-center">
+                    <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
+                        <% for( let i = 0; i < resultado.length; i++ ) { %>
+                        <% let user = resultado[i] %>
+                        <div
+                            class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                            <div class="info-usuario uk-flex ">
+                                <div>
+                                    <img src="<%= user.imagen %> " alt="">
+                                </div>
+                                <h4><a href="/users/details/<%= user.id%>"> <%= user.nombre %> <%= user.apellido%> </a>
+                                </h4>
+
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </section>
+                <% } %>
+            </div>
+        </div>
+
+    </main>
+
+    <%- include('./partials/footer') %>
+
+</body>
+
+</html>

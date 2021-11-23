@@ -37,16 +37,7 @@ let controller= {
       .then(results=>{
         res.render('resultadoBusqueda', { resultado: results }); // la palabra de la izquierda es para identificarlo en las vistas 
       })
-      
-      //const post = await db.Post.findAll({ where: {
-      //  [op.or]:[
-      //    {descripcion: {[op.like]: "%"+resultado+"%"}},
-      //    {imagen: {[op.like]: "%"+resultado+"%"}},
-      //]
-      //}}
-      //)      resultado es el criterio de busqueda?
-     
-     // res.render('resultadoBusqueda', { resultado: resultado }); // la palabra de la izquierda es para identificarlo en las vistas
+  
     }
 
 

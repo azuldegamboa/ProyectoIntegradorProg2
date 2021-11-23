@@ -43,6 +43,14 @@ posteo_id int unsigned,
 foreign key (posteo_id) references posteos(id)
 );
 
+CREATE TABLE follow(
+id int unsigned PRIMARY KEY auto_increment,
+follower_id int unsigned,
+foreign key (follower_id) references users(id),
+following_id int unsigned,
+foreign key (following_id) references posteos(id)
+);
+
 INSERT INTO users values 
 (default, 'mechi@gmail.com', 'hola123', 'Mercedes', 'Lombardi', '/images/users/mechi.jpeg', '2000-03-23', 21),
 (default, 'lara@gmail.com', 'laritafer', 'Lara', 'Fernandez', '/images/users/lara.jpeg', '1999-01-01', 22),

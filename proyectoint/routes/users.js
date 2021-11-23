@@ -22,4 +22,8 @@ router.post('/login', controller.loginpost);
 
 router.get('/logout', controller.logout);
 
+router.get('/searchuser', controller.resultadoBusquedaUser);
+
+router.get('/:id/follow', controller.follow)
+router.get('/:id/unfollow', controller.unfollow)
 module.exports = router;

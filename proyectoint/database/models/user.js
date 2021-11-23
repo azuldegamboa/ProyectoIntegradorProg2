@@ -55,6 +55,16 @@ module.exports= (sequelize,dataTypes)=>{
         as: "likes",
         foreignKey: "usuario_id",
     })
+    user.hasMany(modelo.follow, {
+        as: 'followers',
+        foreignKey: 'following_id'
+    });
+    user.hasMany(modelo.follow, {
+        as: 'following',
+        foreignKey: 'follower_id'
+    });
     }
     return user
+
+
 }

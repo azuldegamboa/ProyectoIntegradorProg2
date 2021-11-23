@@ -21,7 +21,19 @@
                     <div class=" uk-flex uk-flex-column uk-flex-around">
                         <div class="uk-flex uk-flex-middle">
                             <h3 class="uk-margin-remove"><%= user.nombre %> <%= user.apellido %></h3>
-                            <button class="uk-button uk-button-small uk-button-primary uk-margin-left">Seguir</button>
+             
+                          <% if (usuariolog && user.id != usuariolog.id) { %>
+                        <div class="float-end">
+                          <% if (user.followers.find(follow => follow.follower_id == usuariolog.id)) { %>
+                            <a href="/users/<%= user.id %>/unfollow" class="btn btn-danger"> <button class="uk-button uk-button-small uk-button-primary uk-margin-left">Dejar de Seguir</button>
+                            </a>
+                          <% } else { %>
+                            <a href="/users/<%= user.id %>/follow" class="btn btn-primary"> <button class="uk-button uk-button-small uk-button-primary uk-margin-left">Seguir</button>
+                            </a>
+                          <% } %>
+                        </div>
+                      <% } %> 
+                           
                             <a href="/users/edit" uk-icon="icon:cog; ratio: 1.2" class="uk-margin-left"></a>
                         </div>
                         <div>
@@ -32,7 +44,13 @@
                             </ul>
                         </div>
                     </div>
+                    
                </section>
+               <form action="/users/searchuser" class="uk-search uk-search-default">
+                <span uk-search-icon></span>
+                <input type="search" class="uk-search-input" placeholder="Buscar otro usuario.." name="search">
+            </form>
+
                <section class="muro uk-flex uk-flex-middle uk-flex-center">
                     <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
                         <% for( let i = 0; i < user.posteos.length; i++ ) { %>
