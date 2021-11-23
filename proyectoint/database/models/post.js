@@ -32,7 +32,7 @@ module.exports= (sequelize,dataTypes)=>{
 
 
     const post = sequelize.define(alias,cols,config) //modelo. alias nombre en todo el proyecto, cols es columnas campos de la tabla, config datos extras sobre el modelo 
-    post.associate = (modelo) =>{
+    post.associate = (modelo) =>{ //conecto con el restoo de los modelos 
         post.belongsTo(modelo.user,{
             as: "user", // le pertenece al usuario
             foreignKey: "usuario_id", // dato que usamos para saber q posteo le pertenece a cada usuario 

@@ -46,7 +46,7 @@ let controller= {
       //}}
       //)      resultado es el criterio de busqueda?
      
-      res.render('resultadoBusqueda', { resultado: resultado }); // la palabra de la izquierda es para identificarlo en las vistas
+     // res.render('resultadoBusqueda', { resultado: resultado }); // la palabra de la izquierda es para identificarlo en las vistas
     }
 
 
