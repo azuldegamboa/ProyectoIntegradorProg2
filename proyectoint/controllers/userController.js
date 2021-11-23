@@ -67,11 +67,11 @@ let controller = {
       error: null
     });
   },
-  logout: function (req, res, next) { //req= request res = response
+  logout: function(req, res, next) {
+    res.clearCookie('user');
     req.session.user = null;
-    res.clearCookie('user')
-    res.redirect('/')
-    },
+    res.redirect('/');
+  },
   loginpost: function (req, res, next) { //req= request res = response
     if (!req.body.email) {
       res.render('login', {
