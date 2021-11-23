@@ -56,7 +56,7 @@ store: function(req,res){
           res.redirect("/")
         })
       },
-      delete:function(req,res){
+    delete:function(req,res){
         db.post.destroy({
           where:[
             {id:req.body.id}
@@ -106,8 +106,7 @@ store: function(req,res){
           }
         })
        
-      },
-      
+      }, 
       comentar:function(req,res){
         db.comentario.create({
           comentario:req.body.comment,
@@ -118,10 +117,8 @@ store: function(req,res){
           res.redirect("/posts/detalle/"+req.body.id)
         })
       },
-
-        
-        
-        like: function(req, res) {
+    
+      like: function(req, res) {
           if (!req.session.user) {
             res.redirect('/posts/detalle/'+req.params.id);
           }
